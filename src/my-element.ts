@@ -6,7 +6,7 @@
 
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-
+import './components/portfolio-section'
 /**
  * An example element.
  *
@@ -17,11 +17,11 @@ import {customElement, property} from 'lit/decorators.js';
 @customElement('my-element')
 export class MyElement extends LitElement {
   static override styles = css`
-    :host {
-      display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
+    .container {
+      width: 50%;
+      float: right;
+      background: #f5f5f5c7;
+      padding: 20px;
     }
   `;
 
@@ -39,11 +39,39 @@ export class MyElement extends LitElement {
 
   override render() {
     return html`
+      <div class='container'>
       <h1>${this.sayHello(this.name)}!</h1>
       <button @click=${this._onClick} part="button">
         Click Count: ${this.count}
       </button>
+      <portfolio-section
+        key='1'
+        id='1'
+        portfolioTitle='Senior UI Engineer, Ciena'
+        portfolioSubtitle='June 2022 - Present'
+        .content='${['Worked on an application to help providers Manage, Control and Plan their communication networks.Developed using Ember.js, Typescript, SASS and tests written using Mocha, QUnit',
+        'Developed UI for an application that provides users with the ability to run an analysis of the spectrum placement in their network based on uploaded capture file. It allows users to maximize their spectrum assets in order to accommodate new wavelengths and/or wider baud modems. Application written in React.']}'
+      >
+        <div>Skills:  react testing library · React.js · TypeScript · docker · SASS · Mentoring · Ember.js · Mocha (JavaScript Framework) · storybook · Jest</div>
+      </portfolio-section>
+      <portfolio-section
+        key='2'
+        id='2'
+        portfolioTitle='Technical Lead, Ross Video'
+        portfolioSubtitle='June 2022 - Present'
+        .content='${['Worked on an application to help providers Manage, Control and Plan their communication networks.Developed using Ember.js, Typescript, SASS and tests written using Mocha, QUnit',
+        'Developed UI for an application that provides users with the ability to run an analysis of the spectrum placement in their network based on uploaded capture file. It allows users to maximize their spectrum assets in order to accommodate new wavelengths and/or wider baud modems. Application written in React.']}'
+      ></portfolio-section>
+      <portfolio-section
+        key='3'
+        id='3'
+        portfolioTitle='UI Engineer, Ross Video'
+        portfolioSubtitle='June 2022 - Present'
+        .content='${['Worked on an application to help providers Manage, Control and Plan their communication networks.Developed using Ember.js, Typescript, SASS and tests written using Mocha, QUnit',
+        'Developed UI for an application that provides users with the ability to run an analysis of the spectrum placement in their network based on uploaded capture file. It allows users to maximize their spectrum assets in order to accommodate new wavelengths and/or wider baud modems. Application written in React.']}'
+      ></portfolio-section>
       <slot></slot>
+      </div>
     `;
   }
 
