@@ -24,28 +24,28 @@ export class PortfolioSection extends LitElement {
     }
   `;
   @property({type: Array})
-  content = ['Portfolio Content']
+  content = ['Portfolio Content'];
 
   @property({type: String})
-  portfolioTitle = 'Company name'
+  portfolioTitle = 'Company name';
 
   @property({type: String})
-  portfolioSubtitle = 'Year'
+  portfolioSubtitle = 'Year';
 
-  private _getContent () {
-    return this.content.map((c) =>
-      html`<div class='portfolio-content_item'>${c}</div>`
-    )
+  private _getContent() {
+    return this.content.map(
+      (c) => html`<div class="portfolio-content_item">${c}</div>`
+    );
   }
 
   override render() {
     return html`
-      <div class='portfolio-section'>
-        <div class='portfolio-title'>${this.portfolioTitle}</div>
-        <div class='portfolio-subtitle'>${this.portfolioSubtitle}</div>
-        <div class='portfolio-content'>${this._getContent()}</div>
+      <div class="portfolio-section">
+        <div class="portfolio-title">${this.portfolioTitle}</div>
+        <div class="portfolio-subtitle">${this.portfolioSubtitle}</div>
+        <div class="portfolio-content">${this._getContent()}</div>
         <slot></slot>
       </div>
-    `
+    `;
   }
 }
